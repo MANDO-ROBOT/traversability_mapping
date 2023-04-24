@@ -1,3 +1,23 @@
+# Noetic install Error
+You should edit two things.
+### 1. CMakeList.txt
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
+```
+
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -O3")
+```
+
+### 2. utility.h
+```
+#include <opencv/cv.h>
+```
+
+```
+#include <opencv2/core.hpp>
+```
+
 # Traversability Mapping and Motion Planning
 
 This repository contains code for a traversability mapping and motion plannign system for ROS compatible UGVs. The system takes in point cloud from a Velodyne VLP-16 Lidar and outputs a traversability map for autonomous navigation in real-time. A demonstration of the system can be found here -> https://www.youtube.com/watch?v=4pdBpeRGXmw
